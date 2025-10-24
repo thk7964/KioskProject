@@ -18,12 +18,7 @@ public class Kiosk {
     public void start() {// 키오스크 실행
         while (isCategory) {
             isMenu = true;//메뉴 선택 활성화
-            System.out.println("[ isaac toast MENU ]");
-            for (int i = 0; i < this.menuList.size(); i++) {//List에 저장된 메뉴를 반복문으로 출력
-                Menu categoryMenu = this.menuList.get(i);
-                System.out.println((i + 1) + ". " + categoryMenu.getCategory());
-            }
-            System.out.println("0. 종료");
+            showCategory();//카테고리를 화면에 출력
             try {
                 System.out.println("카테고리를 선택하세요");
                 int categoryChoice = sc.nextInt();// 카테고리를 선택
@@ -48,7 +43,17 @@ public class Kiosk {
         }
         System.out.println("프로그램을 종료합니다.");
     }
+    //카테고리 메뉴 화면에 출력
+    public void showCategory(){
+        System.out.println("[ isaac toast MENU ]");
+        for (int i = 0; i < this.menuList.size(); i++) {//List에 저장된 메뉴를 반복문으로 출력
+            Menu categoryMenu = this.menuList.get(i);
+            System.out.println((i + 1) + ". " + categoryMenu.getCategory());
+        }
+        System.out.println("0. 종료");
 
+    }
+    //사용자가 선택한 메뉴를 출력
     public void orderMenu(Menu selectCategory) {
         while (isMenu) {
             try {
