@@ -6,7 +6,7 @@ public class MenuItem {
     private final double price;// 메뉴 가격
     private final String description;// 메뉴 설명
 
-    //생산자
+    //생성자
     public MenuItem(String name, double price, String description) {
         this.name = name;
         this.price = price;
@@ -14,15 +14,18 @@ public class MenuItem {
     }
 
     //기능
-    public String getName() {//메뉴 이름 반환
+    //메뉴 이름 반환 (게터)
+    public String getName() {
         return this.name;
     }
-
-    public double getPrice() {//메뉴 가격 반환
+    //메뉴 가격 반환 (게터)
+    public double getPrice() {
         return this.price;
     }
-
-    public String getDescription() {//메뉴 설명 반환
+    //메뉴 설명 반환 (게터)
+    public String getDescription() {
         return this.description;
     }
+
+
 }
