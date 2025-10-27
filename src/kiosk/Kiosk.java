@@ -38,7 +38,7 @@ public class Kiosk {
 
             } catch (InputMismatchException e) {
                 System.out.println("잘못 입력했습니다.");
-                sc.next();//잘못 입력된 값 비우기
+                sc.nextLine();//잘못 입력된 값 비우기
             }
         }
         System.out.println("프로그램을 종료합니다.");
@@ -72,7 +72,7 @@ public class Kiosk {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("잘못 입력했습니다.");
-                sc.next();//잘못 입력된 값 비우기
+                sc.nextLine();//잘못 입력된 값 비우기
             }
         }
     }
