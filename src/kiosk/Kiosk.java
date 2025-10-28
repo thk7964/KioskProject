@@ -51,6 +51,7 @@ public class Kiosk {
         System.out.println("0. 종료");
 
     }
+    //메뉴 화면 출력
     public void showMenu(Menu selectCategory){
         System.out.println("[ " + selectCategory.getCategory() + " MENU ]");
         selectCategory.showMenu();
