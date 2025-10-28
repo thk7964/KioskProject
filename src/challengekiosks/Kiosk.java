@@ -5,11 +5,10 @@ import java.util.*;
 public class Kiosk {
     //속성
     private final List<Menu> menuList;// menuList List 선언
-    private boolean isCategory = true;//카테고리 선택 화면 반복 실행 여부를 제어하는 변수
     private final Scanner sc = new Scanner(System.in);// Scanner 선언
     private boolean isMenu;//메뉴 선택 화면 반복 실행 여부를 제어하는 변수
-    private boolean isOrderChecked = false;
-
+    private boolean isOrderChecked = false; //장바구니에 메뉴가 있는지 확인
+    private final Cart cart= new Cart();
     //생성자
     public Kiosk(List<Menu> menuList) {
         this.menuList = menuList;
@@ -17,33 +16,28 @@ public class Kiosk {
 
     //기능
     public void start() {// 키오스크 실행
+        boolean isCategory = true;//카테고리 선택 화면 반복 실행 여부를 제어하는 변수
         while (isCategory) {
             isMenu = true;//메뉴 선택 활성화
             showCategory();//카테고리를 화면에 출력
-
             try {
                 System.out.println("카테고리를 선택하세요");
-
                 int categoryChoice = sc.nextInt();// 카테고리를 선택
 
                 //사용자가 입력한 번호에 따라 다른 동작 수행
                 if (categoryChoice >= 1 && categoryChoice <= (this.menuList.size())) {
                     Menu selectCategory = this.menuList.get(categoryChoice - 1);
-                    System.out.println("[ " + selectCategory.getCategory() + " MENU ]");
-                    selectCategory.showMenu();
-                    System.out.println("0. 되돌아가기");
-                    System.out.println("======주문할 메뉴를 선택해주세요======");
+                    showMenu(selectCategory);
                     orderMenu(selectCategory);
                 } else if (categoryChoice == 4) {
                     if (isOrderChecked) {
-                        System.out.println("주문한다!!!!");
+                        showOrderMenu();
                     } else {
                         System.out.println("잘못 입력했습니다.");
-
                     }
                 } else if (categoryChoice == 5) {
                     if (isOrderChecked) {
-                        System.out.println("주문내역 삭제한다!!");
+                        System.out.println("주문내역 삭제완료");
                         isOrderChecked = false;
                     } else {
                         System.out.println("잘못 입력했습니다.");
@@ -76,6 +70,14 @@ public class Kiosk {
         }
     }
 
+    //메뉴 화면 출력
+    public void showMenu(Menu selectCategory){
+        System.out.println("[ " + selectCategory.getCategory() + " MENU ]");
+        selectCategory.showMenu();
+        System.out.println("0. 되돌아가기");
+        System.out.println("======주문할 메뉴를 선택해주세요======");
+    }
+
     //사용자가 선택한 메뉴를 출력
     public void orderMenu(Menu selectCategory) {
         while (isMenu) {
@@ -93,7 +95,8 @@ public class Kiosk {
                     System.out.println("1. 확인\t 2. 취소");
                     int cartInput = sc.nextInt();//장바구니에 추가
                     if (cartInput == 1) {
-                        System.out.println(selectMenu.getName() + "이 장바구니에 추가되었습니다.");
+                        cart.addCart(selectMenu);
+                        System.out.println(selectMenu.getName()+"가 장바구니에 추가되었습니다.");
                         isOrderChecked = true;
                     } else if (cartInput == 2) {
                         System.out.println("취소 되었습니다.");
@@ -108,6 +111,22 @@ public class Kiosk {
             } catch (InputMismatchException | IllegalArgumentException e) {
                 System.out.println("잘못 입력했습니다.");
                 sc.nextLine();//잘못 입력된 값 비우기
+            }
+        }
+    }
+    //주문 화면 출력
+    public void showOrderMenu(){
+        while (true) {
+            cart.showOrderList();
+            System.out.println("1. 주문하기\t 2. 메뉴판으로 돌아가기");
+            int choiceorder = sc.nextInt();
+            if (choiceorder == 1) {
+                System.out.println("주문완료");
+                break;
+            }else if(choiceorder==2){
+                break;
+            }else {
+                System.out.println("잘못 입력했습니다.");
             }
         }
     }
