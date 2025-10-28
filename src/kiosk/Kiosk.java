@@ -16,25 +16,24 @@ public class Kiosk {
     //기능
     public void start() {// 키오스크 실행
         boolean isCategory = true;//카테고리 선택 화면 반복 실행 여부를 제어하는 변수
+            while (isCategory) {
+                isMenu = true;//메뉴 선택 활성화
+                showCategory();//카테고리를 화면에 출력
+                try {
+                    System.out.println("카테고리를 선택하세요");
+                    int categoryChoice = sc.nextInt();// 카테고리를 선택
+                    //사용자가 입력한 번호에 따라 다른 동작 수행
+                    if (categoryChoice >= 1 && categoryChoice <= this.menuList.size()) {
+                        Menu selectCategory = this.menuList.get(categoryChoice - 1);
+                        showMenu(selectCategory);
+                        orderMenu(selectCategory);
+                    } else if (categoryChoice == 0) {
+                        isCategory = false;// 프로그램 종료
+                    } else {
+                        System.out.println("잘못 입력했습니다.");
+                    }
 
-        while (isCategory) {
-            isMenu = true;//메뉴 선택 활성화
-            showCategory();//카테고리를 화면에 출력
-            try {
-                System.out.println("카테고리를 선택하세요");
-                int categoryChoice = sc.nextInt();// 카테고리를 선택
-                //사용자가 입력한 번호에 따라 다른 동작 수행
-                if (categoryChoice >= 1 && categoryChoice <= this.menuList.size()) {
-                    Menu selectCategory = this.menuList.get(categoryChoice - 1);
-                    showMenu(selectCategory);
-                    orderMenu(selectCategory);
-                } else if (categoryChoice == 0) {
-                    isCategory = false;// 프로그램 종료
-                } else {
-                    System.out.println("잘못 입력했습니다.");
-                }
-
-            } catch (InputMismatchException e) {
+                } catch (InputMismatchException e) {
                 System.out.println("잘못 입력했습니다.");
                 sc.nextLine();//잘못 입력된 값 비우기
             }

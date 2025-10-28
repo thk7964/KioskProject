@@ -12,13 +12,23 @@ public class Cart {
     //장바구니 안의 메뉴를 보여준다.
     public void showOrderList(){
         System.out.println("[ Order Menu ]");
+        List<String> pickName = new ArrayList<>();
         for (CartItem item : orderList) {
-            System.out.println(item.getMenuItem().getName() + " | w"
-                    + item.getMenuItem().getPrice() + " | "
-                    + item.getMenuItem().getDescription());
+            int cnt=0;
+            String name =item.getMenuItem().getName();
+            double price = item.getMenuItem().getPrice();
+            if (pickName.contains(name)) continue;
+            for (CartItem cartItem : orderList) {
+                if (cartItem.getMenuItem().getName().equals(name)) {
+                    cnt++;
+                }
+            }
+            System.out.printf("%s | w %s | %s | 주문 수량 :  %d 개 | 금액 합 : %s%n",
+                    name, price, item.getMenuItem().getDescription() , cnt, price * (double) cnt);
+            pickName.add(name);
         }
         System.out.println("[ Total ]");
-        System.out.println("w :"+getTotalPrice());
+        System.out.printf("총 금액 : w %.2f",getTotalPrice());
     }
 
     //메뉴를 장바구니에 저장한다.
