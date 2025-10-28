@@ -1,7 +1,6 @@
 package challengekiosks;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Menu {
     //속성
@@ -27,7 +26,7 @@ public class Menu {
     public List<MenuItem> getMenuItem() {
         return this.menuItems;
     }
-    //menuItems 리스트에 저장된 내용 print
+    //menuItems 리스트에 저장된 내용 출력
     public void showMenu() {
         for (int i = 0; i < this.menuItems.size(); i++) {
             System.out.println((i + 1) + ". "
@@ -36,5 +35,4 @@ public class Menu {
                     + " | " + this.menuItems.get(i).getDescription());
         }
     }
-
 }
