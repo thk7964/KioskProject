@@ -37,6 +37,7 @@ public class Kiosk {
                     }
                 } else if (categoryChoice == 5) {
                     if (isOrderChecked) {
+                        cart.clearCart();
                         System.out.println("주문내역 삭제완료");
                         isOrderChecked = false;
                     } else {
@@ -122,6 +123,7 @@ public class Kiosk {
             int choiceorder = sc.nextInt();
             if (choiceorder == 1) {
                 System.out.println("주문완료");
+                cart.clearCart();
                 break;
             }else if(choiceorder==2){
                 break;

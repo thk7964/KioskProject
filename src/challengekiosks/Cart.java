@@ -24,5 +24,11 @@ public class Cart {
         orderList.add(new CartItem(item));
     }
 
+    //장바구니를 비웁니다.
+    public void clearCart(){
+        orderList.clear();
+    }
+
+
 
 }
