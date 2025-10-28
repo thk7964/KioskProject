@@ -17,6 +17,8 @@ public class Cart {
                     + item.getMenuItem().getPrice() + " | "
                     + item.getMenuItem().getDescription());
         }
+        System.out.println("[ Total ]");
+        System.out.println("w :"+getTotalPrice());
     }
 
     //메뉴를 장바구니에 저장한다.
@@ -29,6 +31,13 @@ public class Cart {
         orderList.clear();
     }
 
-
+    //총합 계산
+    public double getTotalPrice(){
+        double sum=0;
+        for (CartItem item : orderList) {
+            sum += item.getMenuItem().getPrice();
+        }
+        return sum;
+    }
 
 }
