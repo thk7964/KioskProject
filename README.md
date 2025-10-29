@@ -55,6 +55,7 @@
 
 ### 클래스 구조도
 프로젝트 내 주요 클래스 간의 관계를 시각화한 다이어그램이다.
+
 <img width="553" height="693" alt="image" src="https://github.com/user-attachments/assets/e86593d9-86e3-4819-b491-2095615f0e69" />
 
 ### 구조 설명
