@@ -23,7 +23,7 @@ public class Kiosk {
             showCategory();//카테고리를 화면에 출력
             try {
                 System.out.println("카테고리를 선택하세요");
-                int categoryChoice = sc.nextInt();// 카테고리를 선택
+                int categoryChoice = sc.nextInt();// 카테고리 사용자 입력
 
                 //사용자가 입력한 번호에 따라 다른 동작 수행
                 if (categoryChoice >= 1 && categoryChoice <= (this.menuList.size())) {
@@ -122,12 +122,13 @@ public class Kiosk {
         while (true) {
             cart.showOrderList();
             System.out.println("1. 주문하기\t 2. 메뉴판으로 돌아가기");
-            int choiceorder = sc.nextInt();
-            if (choiceorder == 1) {
+            int choiceOrder = sc.nextInt();
+            if (choiceOrder == 1) {
                 System.out.println("주문완료");
+                isOrderChecked = false;
                 cart.clearCart();
                 break;
-            } else if (choiceorder == 2) {
+            } else if (choiceOrder == 2) {
                 break;
             } else {
                 System.out.println("잘못 입력했습니다.");
