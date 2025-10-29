@@ -3,12 +3,12 @@ package challengekiosks;
 public class CartItem {
     //속성
     private final MenuItem menuItem;//장바구니에 담긴 메뉴 아이템
-    private int quantity;
+    private int quantity;//장바구니에 담긴 메뉴 수량
 
     //생산자
     public CartItem(MenuItem menuItem) {
         this.menuItem = menuItem;
-        quantity = 1;// 초기 수량은 1
+        quantity = 1;// 초기 메뉴 수량은 1
     }
 
     //기능
