@@ -39,7 +39,7 @@ public class Kiosk {
                 } else if (categoryChoice == 5) {
                     if (isOrderChecked) {
                         cart.clearCart();
-                        System.out.println("주문내역 삭제완료");
+                        System.out.println("장바구니 비우기 완료");
                         isOrderChecked = false;
                     } else {
                         System.out.println("잘못 입력했습니다.");
