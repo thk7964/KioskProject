@@ -2,11 +2,11 @@ package test;
 
 import java.util.*;
 
-public class Kiost {
+public class Kiosk {
     private final Scanner sc = new Scanner(System.in);
     private final List<MenuItem> menuItem;
 
-    public Kiost(List<MenuItem> menuItem){
+    public Kiosk(List<MenuItem> menuItem){
         this.menuItem=menuItem;
     }
 

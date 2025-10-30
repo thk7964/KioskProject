@@ -13,7 +13,7 @@ public class App {
         items.add(new MenuItem("햄치즈 포테이토", 4.4, "햄치즈에 해시브라운이 더해져 든든하게 즐길 수 있어요"));
         items.add(new MenuItem("감자 스페셜", 4.8, "고소한 해시브라운과 베이컨, 양배추로 풍성한 식감을 즐겨보세요"));
 
-        Kiost kiost=new Kiost(items);
+        Kiosk kiost=new Kiosk(items);
         kiost.start();
 
     }
